@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Asistencia Escolar</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="login">
+
+        <div class="login-header">
+            <h1>📚 Sistema de Asistencia Escolar</h1>
+            <p>Control de Acceso</p>
+        </div>
+
+        <div class="login-form">
+
+            <h2>Iniciar Sesión</h2>
+
+            <div class="error-mensaje" id="errorLogin"></div>
+
+            <label>Usuario</label>
+            <input
+                type="text"
+                id="usuario"
+                placeholder="Ingrese usuario">
+
+            <label>Contraseña</label>
+            <input
+                type="password"
+                id="clave"
+                placeholder="Ingrese contraseña">
+
+            <button onclick="ingresar()">
+                Ingresar
+            </button>
+
+            <div class="credenciales">
+
+                <h3>Usuarios de Prueba</h3>
+
+                <table>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Rol</th>
+                    </tr>
+
+                    <tr>
+                        <td>admin</td>
+                        <td>1234</td>
+                        <td>Administrador</td>
+                    </tr>
+
+                    <tr>
+                        <td>docente</td>
+                        <td>1234</td>
+                        <td>Docente</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

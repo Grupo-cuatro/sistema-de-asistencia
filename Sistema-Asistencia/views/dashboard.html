@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Asistencia Escolar</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="encabezado">
+            <div>
+                <h1>📚 Sistema de Asistencia Escolar</h1>
+                <p>Bienvenido, <span id="usuarioActual">...</span> — <span id="rolActual" class="badge"></span></p>
+            </div>
+            <div>
+                <button class="btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="menu-modulos">
+            <a href="/dashboard.html" class="activo">🏠 Dashboard</a>
+            <a href="/estudiantes.html">👨‍🎓 Estudiantes</a>
+            <a href="/asistencia.html">📋 Asistencia</a>
+            <a href="/reportes.html">📊 Reportes</a>
+            <a href="/usuarios.html" class="solo-admin">🔐 Usuarios</a>
+        </nav>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Estudiantes Registrados</h3>
+                <div class="valor" id="totalEstudiantes">-</div>
+            </div>
+
+            <div class="stat-card verde">
+                <h3>Asistencias Hoy</h3>
+                <div class="valor" id="totalPresentesHoy">-</div>
+            </div>
+
+            <div class="stat-card amarillo">
+                <h3>Tardanzas Hoy</h3>
+                <div class="valor" id="totalTardeHoy">-</div>
+            </div>
+
+            <div class="stat-card rojo">
+                <h3>Faltas Hoy</h3>
+                <div class="valor" id="totalFaltaHoy">-</div>
+            </div>
+
+        </div>
+
+        <div class="formulario">
+            <h2>Bienvenido al Sprint 3</h2>
+            <p>
+                El sistema ahora funciona con un servidor <strong>Node.js + Express</strong> y una
+                base de datos <strong>SQLite</strong> (<code>database.db</code>). Use el menú superior
+                para gestionar estudiantes, registrar asistencia, generar reportes y
+                (si su rol es Administrador) administrar usuarios del sistema.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

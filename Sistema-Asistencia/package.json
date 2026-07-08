@@ -1,0 +1,17 @@
+{
+  "name": "sistema-asistencia-escolar",
+  "version": "3.0.0",
+  "description": "Sistema de Asistencia Escolar - Sprint 3 (Node.js + Express + SQLite)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node database/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "express-session": "^1.18.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5"
+  }
+}

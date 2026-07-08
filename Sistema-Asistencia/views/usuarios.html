@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios - Sistema de Asistencia Escolar</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="encabezado">
+            <div>
+                <h1>📚 Sistema de Asistencia Escolar</h1>
+                <p>Bienvenido, <span id="usuarioActual">...</span> — <span id="rolActual" class="badge"></span></p>
+            </div>
+            <div>
+                <button class="btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="menu-modulos">
+            <a href="/dashboard.html">🏠 Dashboard</a>
+            <a href="/estudiantes.html">👨‍🎓 Estudiantes</a>
+            <a href="/asistencia.html">📋 Asistencia</a>
+            <a href="/reportes.html">📊 Reportes</a>
+            <a href="/usuarios.html" class="activo solo-admin">🔐 Usuarios</a>
+        </nav>
+
+        <div class="formulario">
+
+            <h2>Crear Usuario</h2>
+
+            <label>Usuario</label>
+            <input type="text" id="usuario" placeholder="Nombre de usuario">
+
+            <label>Contraseña</label>
+            <input type="password" id="password" placeholder="Contraseña">
+
+            <label>Rol</label>
+            <select id="rol">
+                <option value="Docente">Docente</option>
+                <option value="Administrador">Administrador</option>
+            </select>
+
+            <div class="botones">
+                <button class="btn-guardar" onclick="crearUsuario()">Crear Usuario</button>
+            </div>
+
+        </div>
+
+        <div class="tabla-container">
+
+            <h2>Usuarios del Sistema</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Creado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaUsuarios">
+                    <tr><td colspan="5">Cargando usuarios...</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="tabla-container mt-15">
+
+            <h2>🕵️ Auditoría del Sistema</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Acción</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAuditoria">
+                    <tr><td colspan="3">Cargando auditoría...</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/usuarios.js"></script>
+    <div id="toast"></div>
+
+</body>
+
+</html>

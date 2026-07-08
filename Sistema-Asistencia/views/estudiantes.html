@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes - Sistema de Asistencia Escolar</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="encabezado">
+            <div>
+                <h1>📚 Sistema de Asistencia Escolar</h1>
+                <p>Bienvenido, <span id="usuarioActual">...</span> — <span id="rolActual" class="badge"></span></p>
+            </div>
+            <div>
+                <button class="btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="menu-modulos">
+            <a href="/dashboard.html">🏠 Dashboard</a>
+            <a href="/estudiantes.html" class="activo">👨‍🎓 Estudiantes</a>
+            <a href="/asistencia.html">📋 Asistencia</a>
+            <a href="/reportes.html">📊 Reportes</a>
+            <a href="/usuarios.html" class="solo-admin">🔐 Usuarios</a>
+        </nav>
+
+        <!-- REGISTRO DE ESTUDIANTES -->
+
+        <div class="formulario">
+
+            <h2 id="tituloFormulario">Registro de Estudiantes</h2>
+
+            <input type="hidden" id="estudianteId">
+
+            <label>Código</label>
+            <input type="text" id="codigo" placeholder="Código de matrícula (opcional)">
+
+            <label>DNI</label>
+            <input
+                type="text"
+                id="dni"
+                maxlength="8"
+                placeholder="Ingrese DNI"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+            <label>Nombres</label>
+            <input type="text" id="nombres" placeholder="Ingrese nombres">
+
+            <label>Apellidos</label>
+            <input type="text" id="apellidos" placeholder="Ingrese apellidos">
+
+            <label>Correo</label>
+            <input type="email" id="correo" placeholder="correo@ejemplo.com (opcional)">
+
+            <label>Carrera</label>
+            <input type="text" id="carrera" placeholder="Carrera (opcional)">
+
+            <label>Ciclo</label>
+            <input type="text" id="ciclo" placeholder="Ciclo (opcional)">
+
+            <label>Fotografía</label>
+            <input
+                type="file"
+                id="foto"
+                accept="image/*"
+                title="Subir fotografía del estudiante"
+                aria-label="Fotografía del estudiante">
+
+            <div class="botones">
+
+                <button class="btn-guardar" onclick="guardar()">Guardar</button>
+                <button class="btn-limpiar" onclick="limpiar()">Limpiar</button>
+
+            </div>
+
+        </div>
+
+        <!-- BUSCADOR -->
+
+        <div class="formulario">
+
+            <h2>🔍 Buscar Estudiante</h2>
+
+            <input
+                type="text"
+                id="buscar"
+                placeholder="Buscar por DNI, nombre, apellido, carrera o ciclo"
+                onkeyup="buscar()">
+
+        </div>
+
+        <!-- TABLA DE ESTUDIANTES -->
+
+        <div class="tabla-container">
+
+            <h2>Lista de Estudiantes</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Carrera</th>
+                        <th>Ciclo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="contenidoTabla">
+                    <tr>
+                        <td colspan="8">Cargando estudiantes...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/estudiantes.js"></script>
+    <div id="toast"></div>
+
+</body>
+
+</html>

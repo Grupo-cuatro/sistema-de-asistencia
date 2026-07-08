@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Sistema de Asistencia Escolar</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="encabezado">
+            <div>
+                <h1>📚 Sistema de Asistencia Escolar</h1>
+                <p>Bienvenido, <span id="usuarioActual">...</span> — <span id="rolActual" class="badge"></span></p>
+            </div>
+            <div>
+                <button class="btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="menu-modulos">
+            <a href="/dashboard.html">🏠 Dashboard</a>
+            <a href="/estudiantes.html">👨‍🎓 Estudiantes</a>
+            <a href="/asistencia.html">📋 Asistencia</a>
+            <a href="/reportes.html" class="activo">📊 Reportes</a>
+            <a href="/usuarios.html" class="solo-admin">🔐 Usuarios</a>
+        </nav>
+
+        <div class="formulario">
+
+            <h2>Generar Reporte</h2>
+
+            <div class="filtros">
+
+                <div class="campo">
+                    <label>Tipo de reporte</label>
+                    <select id="tipoReporte" onchange="cambiarTipo()">
+                        <option value="fecha">Por fecha</option>
+                        <option value="carrera">Por carrera</option>
+                        <option value="ciclo">Por ciclo</option>
+                        <option value="estudiante">Por estudiante (DNI)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label id="labelValor">Fecha</label>
+                    <input type="date" id="valorReporte">
+                </div>
+
+                <div class="campo">
+                    <button class="btn-buscar" onclick="generarReporte()">Generar</button>
+                </div>
+
+                <div class="campo">
+                    <button class="btn-exportar" onclick="exportarCSV()">⬇ Exportar CSV</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="tabla-container">
+
+            <h2>Resultado del Reporte</h2>
+
+            <table>
+                <thead id="encabezadoReporte">
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Carrera</th>
+                        <th>Ciclo</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaReporte">
+                    <tr><td colspan="8">Seleccione un filtro y presione "Generar"</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/reportes.js"></script>
+    <div id="toast"></div>
+
+</body>
+
+</html>

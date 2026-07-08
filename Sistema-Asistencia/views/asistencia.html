@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia - Sistema de Asistencia Escolar</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="encabezado">
+            <div>
+                <h1>📚 Sistema de Asistencia Escolar</h1>
+                <p>Bienvenido, <span id="usuarioActual">...</span> — <span id="rolActual" class="badge"></span></p>
+            </div>
+            <div>
+                <button class="btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="menu-modulos">
+            <a href="/dashboard.html">🏠 Dashboard</a>
+            <a href="/estudiantes.html">👨‍🎓 Estudiantes</a>
+            <a href="/asistencia.html" class="activo">📋 Asistencia</a>
+            <a href="/reportes.html">📊 Reportes</a>
+            <a href="/usuarios.html" class="solo-admin">🔐 Usuarios</a>
+        </nav>
+
+        <!-- REGISTRO DE ASISTENCIA -->
+
+        <div class="formulario">
+
+            <h2>📋 Registrar Asistencia</h2>
+
+            <label>DNI del Estudiante</label>
+            <input type="text" id="dniAsistencia" placeholder="Ingrese DNI">
+
+            <label>Observación (opcional)</label>
+            <input type="text" id="observacion" placeholder="Observación">
+
+            <div class="opciones-asistencia">
+
+                <button class="btn-presente" onclick="registrarAsistencia('Presente')">✔ Presente</button>
+                <button class="btn-tardanza" onclick="registrarAsistencia('Tarde')">⏰ Tarde</button>
+                <button class="btn-falta" onclick="registrarAsistencia('Falta')">❌ Falta</button>
+                <button onclick="registrarAsistencia('Justificado')">📝 Justificado</button>
+
+            </div>
+
+        </div>
+
+        <!-- HISTORIAL DE ASISTENCIA -->
+
+        <div class="tabla-container">
+
+            <h2>📅 Historial de Asistencia</h2>
+
+            <div class="filtros">
+
+                <div class="campo">
+                    <label>Filtrar por fecha</label>
+                    <input type="date" id="filtroFecha">
+                </div>
+
+                <div class="campo">
+                    <label>Filtrar por estado</label>
+                    <select id="filtroEstado">
+                        <option value="">Todos</option>
+                        <option value="Presente">Presente</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Falta">Falta</option>
+                        <option value="Justificado">Justificado</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <button class="btn-buscar" onclick="cargarHistorial()">Filtrar</button>
+                </div>
+
+            </div>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Observación</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaAsistencias">
+                    <tr><td colspan="7">Cargando historial...</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/asistencia.js"></script>
+    <div id="toast"></div>
+
+</body>
+
+</html>
